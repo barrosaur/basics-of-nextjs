@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.title-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container {
+    margin-left: 15px;
+    padding: 0;
+}
+
+.btn-container {
+    margin: 50px 0 0;
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #696969;
+    outline: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #868686;
+}
