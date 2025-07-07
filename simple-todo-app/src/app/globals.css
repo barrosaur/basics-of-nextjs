@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.home-page {
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+  margin-bottom: 35px;
+  width: 45%;
+  height: 5px;
+  border: none;
+  background-color: #000;
+  outline: none;
+  border-radius: 5px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.input-container > input {
+  padding: 5px 10px;
+  width: 85%;
+  border-radius: 5px;
+  outline: none;
+}
+
+.input-container > button {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 10px;
+  border-radius: 50%;
+  width: 11%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.input-container > button:hover {
+  background-color: #696969;
+}
+
+.todo-list-container {
+  border: 2px solid #000;
+  border-radius: 5px;
+  width: 55%;
+  margin-top: 30px;
+  padding: 10px 20px;
+  height: 400px;
+  overflow: auto;
+}
+
+.todo-list-container > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-list-container > ul > li {
+  margin-left: 10px;
+}
