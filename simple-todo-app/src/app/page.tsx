@@ -18,6 +18,11 @@ export default function Home() {
     setTasks(t => [...t, newTask]);
   }
 
+  const handleDelete = (index) => {
+    const updatedTask = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTask)
+  }
+
   return (
     <div className="home-page">
       <h1>Simple TODO</h1>
@@ -38,7 +43,10 @@ export default function Home() {
         <ul>
           {/* .map(value, index) */}
           {tasks.map((task, index) => 
-            <li key={index}>{task}</li>
+            <li key={index}>{task}
+            <button onClick={() => handleDelete(index)}>Delete</button>
+            </li>
+            
           )}
         </ul>
       </div>
