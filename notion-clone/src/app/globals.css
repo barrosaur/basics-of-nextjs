@@ -1,0 +1,26 @@
+:root {
+  --background: #1f1f1f;
+  --foreground: #ffffff;
+  --black: #212121;
+  --green: #098a1e;
+  --green-hover: #067a19;
+  --red: #a90b0b;
+  --red-hover: #900a0a;
+  --matteblack: #1b1a1a;
+  --shadow-gray: #575757;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+h1 {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
