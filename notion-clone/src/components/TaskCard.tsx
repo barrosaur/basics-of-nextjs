@@ -1,7 +1,12 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import './components.css';
+import OpenTaskTab from './OpenTaskTab';
 
-const TaskCard = () => {
+const TaskCard = ({ inputs }) => {
+  const date = new Date().toLocaleString();
+  const [open, setOpen] = useState(false);
+
   return (
     <div className='task-card'>
 
@@ -13,12 +18,15 @@ const TaskCard = () => {
           </label>
         </div>
         <div className="info-surface">
-          <h1>Title goes here...</h1>
-          <p className='date-text'>Date goes here...</p>  
+          <h1>{inputs.title}</h1>
+          <p className='date-text'>{date}</p>  
         </div>
       </div>
 
-      <button>Open Task</button>
+      <button onClick={() => setOpen(true)}>Open Task</button>
+      {open && (
+        <OpenTaskTab inputs={inputs} onExit={() => setOpen(false)}/>
+      )}
     </div>
   )
 }
