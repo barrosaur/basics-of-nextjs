@@ -301,8 +301,6 @@ menu {
 .open-task-tab > header {
   display: flex;
   margin-top: 30px;
-
-  /* border: 1px solid white; */
 }
 
 .open-task-tab > header > h1 {
@@ -334,3 +332,28 @@ menu {
 }
 
 /* --- END OF OpenTaskTab --- */
+
+/* --- START OF editable in open task tab --- */
+
+.open-task-tab-input {
+  flex: 1;
+  padding: 5px 15px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--foreground);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.open-task-tab-textarea {
+  padding: 10px 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 300px;
+  resize: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+/* --- END OF editable in open task tab --- */

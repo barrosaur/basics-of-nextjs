@@ -3,9 +3,21 @@ import React, { useState } from 'react';
 import './components.css';
 import OpenTaskTab from './OpenTaskTab';
 
-const TaskCard = ({ inputs }) => {
+interface Props {
+  inputs : {
+    title: string;
+    content: string;
+  }
+}
+
+const TaskCard: React.FC<Props> = ({ inputs: initialInputs }) => {
   const date = new Date().toLocaleString();
   const [open, setOpen] = useState(false);
+  const [inputs, setInputs] = useState(initialInputs);
+
+  const handleUpdateTitle = (newTitle : string) => {
+    setInputs((prev) => ({ ...prev, title: newTitle}))
+  }
 
   return (
     <div className='task-card'>
@@ -25,7 +37,11 @@ const TaskCard = ({ inputs }) => {
 
       <button onClick={() => setOpen(true)}>Open Task</button>
       {open && (
-        <OpenTaskTab inputs={inputs} onExit={() => setOpen(false)}/>
+        <OpenTaskTab 
+          inputs={inputs} 
+          onExit={() => setOpen(false)}
+          onSaveTitle={handleUpdateTitle}
+        />
       )}
     </div>
   )
