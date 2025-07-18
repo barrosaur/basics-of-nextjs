@@ -8,6 +8,7 @@ import TaskCard from "@/components/TaskCard";
 export default function Home() {
   const [createNewTask, setCreateNewTask] = useState(false);
   const [saveTask, setSaveTask] = useState(false);
+  const [selected, setSelected] = useState<number[]>([])
 
   const [inputs, setInputs] = useState({
     title: '',
@@ -35,16 +36,33 @@ export default function Home() {
     setInputs({ title: '', content: ''});
   }
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field : string, value : string) => {
     setInputs(prev => ({
       ...prev,
       [field] : value,
     }))
   }
 
+  const handleToggleCard = (index: number) => {
+    setSelected(prev => 
+      prev.includes(index) ? 
+      prev.filter(i => i !== index) : 
+      [...prev, index]
+    )
+  }
+
+  const handleDelete = () => {
+    setSubmittedInputs(prev => prev.filter((_, index) => !selected.includes(index)))
+    setSelected([]);
+  }
+
   return(
     <div className="home-page">
-      <Navbar onCreateTask={openCreateNewTaskTab} />
+      <Navbar 
+        onCreateTask={openCreateNewTaskTab}
+        onDelete={handleDelete}
+        hasSelection={selected.length > 0}
+      />
       <main>
         
         {createNewTask && (
@@ -56,8 +74,13 @@ export default function Home() {
           />
         )}
 
-        {submittedInputs.map((task, index) => (
-          <TaskCard inputs={task} key={index}/>
+        {submittedInputs.map((task, index : number) => (
+          <TaskCard 
+            inputs={task} 
+            key={index}
+            isSelected={selected.includes(index)}
+            onToggle={() => handleToggleCard(index)}
+          />
         ))}
         
       </main>

@@ -4,9 +4,11 @@ import './components.css';
 
 interface NavbarProps {
   onCreateTask: () => void;
+  onDelete: () => void;
+  hasSelection: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onCreateTask }) => {
+const Navbar: React.FC<NavbarProps> = ({ onCreateTask, onDelete, hasSelection }) => {
   const imageSize = 20;
 
   return (
@@ -28,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCreateTask }) => {
         <button className='btn' id='add-btn' onClick={onCreateTask}>
           + Create New Task
         </button>
-        <button className='btn' id='del-btn'>
+        <button className='btn' id='del-btn' onClick={onDelete} disabled={!hasSelection}>
           <Image 
             src="/delete.png"
             height={imageSize}

@@ -7,10 +7,12 @@ interface Props {
   inputs : {
     title: string;
     content: string;
-  }
+  };
+  isSelected: boolean;
+  onToggle : () => void;
 }
 
-const TaskCard: React.FC<Props> = ({ inputs: initialInputs }) => {
+const TaskCard: React.FC<Props> = ({ inputs: initialInputs, isSelected, onToggle }) => {
   const date = new Date().toLocaleString();
   const [open, setOpen] = useState(false);
   const [inputs, setInputs] = useState(initialInputs);
@@ -25,7 +27,11 @@ const TaskCard: React.FC<Props> = ({ inputs: initialInputs }) => {
       <div className="task">
         <div className="checkbox-container">
           <label className="checkbox">
-            <input type="checkbox" />
+            <input 
+              type="checkbox"
+              checked={isSelected}
+              onChange={onToggle} 
+            />
             <span className="checkmark"></span>
           </label>
         </div>
