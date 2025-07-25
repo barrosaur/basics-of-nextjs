@@ -187,5 +187,4 @@
 
 <br>
 
-<p>For specifics, look online but i highly recommend:</p><br>
-<a>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status</a>
+<p>For specifics, look online but i highly recommend <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status">this one</a></p><br>
