@@ -5,18 +5,17 @@
 
 <h2>Notes:</h2>
 <hr>
-<!-->.env<-->
 <h3>The <code>.env</code> file</h3><br>
 <p>This is where you place your environment variables. Environment variables are where you usually keep your api keys or server credentials for safety. <strong>JUST REMEMBER TO ADD IT TO THE <code>.gitignore</code> file</strong> so you won't accidentally reveal your server/api credentials to your repository.</p> <br>
 
 <p>This is how the .env was utilized for this project (storing the credentials of my mysql db)</p><br>
-```javascript
+<code>
   DB_HOST=your_host<br>
   DB_USER=your_username<br>
   DB_PASSWORD=your_password<br>
   DB_NAME=your_db_name<br>
   DB_PORT=port_#_used
-```
+</code>
 <br>
 <p>The <code>PORT</code>; I used this because my mysql server is hosted on localhost port 3306 (the default)</p><br>
 
@@ -27,7 +26,6 @@
 
 <hr>
 
-<!-->next.js structure<-->
 <h3>The next.js structure for the api</h3><br>
 <p>It should be a child of the <code>/app</code> folder. And a child of that should be a <code>/handler</code> folder with a <code>route.js</code> file that handles api calls</p><br>
 
@@ -36,10 +34,9 @@
 
 <hr>
 
-<!-->db.js<-->
 <h3><code>db.js</code></h3><br>
 <p>This is where we configure to connect to my mysql database.</p><br><br>
-```javascript
+<code>
   import mysql from 'mysql2/promise';<br><br>
   export const db = mysql.createPool({<br>
     host: process.env.DB_HOST, <br>
@@ -48,7 +45,7 @@
     database: process.env.DB_NAME, <br>
     port: process.env.DB_PORT, <br>
   })<br>
-```
+</code>
 <br>
 
 <p>Use the import statement not the require one because it's what nextjs wants and we have to follow what it wants because we sucker.</p><br>
@@ -101,11 +98,11 @@
     </tr>
     <tr>
       <td>
-        ```javascript
+        <code>
           return new Response(
             JSON.stringify({ message: 'Data insert successful', insertId: result.inserId }), { status: 200, headers: { 'Content-Type' : 'application/json'}}
           );
-        ```
+        </code>
       </td>
       <td>
         <p>We return a response body that converts it to a json string. <code>message</code> explains what happened. <code>insertId</code> is for when we add a new entry, the id automatically increments. <strong>NOTE: the id column is a primary key with auto_increment during the initialization and configuration of the table.</strong></p><br>
@@ -131,10 +128,10 @@
     </tr>
     <tr>
       <td>
-        ```
+        <code>
           USE db_name;
           CREATE TABLE table_name;
-        ```
+        </code>
       </td>
       <td>
         <p>Again self-explanatory. Note add the <code>USE db_name</code> for the workbench to know which db you makin' your table.</p>
@@ -142,14 +139,14 @@
     </tr>
     <tr>
       <td>
-        ```
+        <code>
           CREATE TABLE table_name (
             id INT AUTO_INCREMENT PRIMARY KEY,
             last_name VARCHAR(255),
             first_name VARCHAR(255),
             email VARCHAR(255)
           );
-        ```
+        </code>
       </td>
       <td>
         <p>
