@@ -1,0 +1,20 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: var(--table-bg);
+}
+
+tr>th, tr>td {
+  border-bottom: 5px solid var(--table-border);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  vertical-align: baseline;
+}

@@ -1,0 +1,27 @@
+.btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.read:hover {
+  color: var(--grey);
+}
+
+.edit {
+  color: var(--green);
+}
+.edit:hover {
+  color: var(--green-hover);
+}
+
+.del {
+  color: var(--red);
+}
+.del:hover {
+  color: var(--red-hover);
+}
