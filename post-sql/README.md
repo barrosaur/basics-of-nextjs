@@ -1,10 +1,7 @@
 <h1>PostSQL</h1>
-<hr>
 <p>This is a simple full stack website with a frontend and a backend. The backend being a local MySQL database.</p><br>
-<br>
 
 <h2>Notes:</h2>
-<hr>
 <h3>The <code>.env</code> file</h3><br>
 <p>This is where you place your environment variables. Environment variables are where you usually keep your api keys or server credentials for safety. <strong>JUST REMEMBER TO ADD IT TO THE <code>.gitignore</code> file</strong> so you won't accidentally reveal your server/api credentials to your repository.</p> <br>
 
@@ -117,7 +114,7 @@
 </table>
 
 <hr>
-<!-->MySql Configuration<-->
+
 <h3>MySQL db configuration</h3><br>
 <p>For this one do it in the mysql workbench. This is all the things i did:</p><br>
 <table>
@@ -187,4 +184,4 @@
 
 <br>
 
-<p>For specifics, look online but i highly recommend <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status">this one</a></p><br>
+<p>For specifics, look online but i highly recommend <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status" target='_blank'>this one</a></p><br>
