@@ -113,44 +113,28 @@ return new Response(
 
 ### MySQL db configuration
 For this one do it in the mysql workbench. This is all the things i did:
-<table>
-  <tbody>
-    <tr>
-      <td><code>CREATE DATABASE db_name;</code></td>
-      <td><p>Pretty self-explanatory</p></td>
-    </tr>
-    <tr>
-      <td>
-        <code>
-          USE db_name;
-          CREATE TABLE table_name;
-        </code>
-      </td>
-      <td>
-        <p>Again self-explanatory. Note add the <code>USE db_name</code> for the workbench to know which db you makin' your table.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>
-          CREATE TABLE table_name (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            last_name VARCHAR(255),
-            first_name VARCHAR(255),
-            email VARCHAR(255)
-          );
-        </code>
-      </td>
-      <td>
-        <p>
-          Learn sql to understand that. But that's the configuration.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+```sql
+CREATE DATABASE db_name;
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pretty self-explanatory. It creates the db.
 
-<p>That's all for the mysql part. It's relatively easy.</p>
+```sql
+USE db_name;
+CREATE TABLE table_name;
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Again self-explanatory. Note add the <code>USE db_name</code> for the workbench to know which db you makin' your table.
+   
+```sql
+CREATE TABLE table_name (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  last_name VARCHAR(255),
+  first_name VARCHAR(255),
+  email VARCHAR(255)
+);
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Learn sql to understand that. But that's the configuration.
+
+That's all for the mysql part. It's relatively easy.
 
 <hr>
 
@@ -177,7 +161,6 @@ For this one do it in the mysql workbench. This is all the things i did:
     </tr>
   </tbody>
 </table>
-
 
 
 For specifics, look online but i highly recommend <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status" target='_blank'>this one</a>
