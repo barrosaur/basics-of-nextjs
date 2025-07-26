@@ -54,6 +54,8 @@ But basically that's the code. It's self-explanatory. Just take note that the po
 ### <code>route.js</code>
 This sets the routing of your api to connect to your frontend.
 
+#### For POST
+
 ```javascript
 export async function POST(req)
 ```
@@ -79,11 +81,12 @@ const query = 'INSERT INTO posts (last_name, first_name, email) VALUES (?, ?, ?)
 ```javascript
 const [result] = await db.query(query, [lastName, firstName, email])
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the first one executes the query on the db. the second one, with the arrays, replaces the question marks in the query.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the first one executes the query on the db. the second one, with the arrays, replaces the question marks in the query (the array containing the parameter value).
       
 ```javascript
 return new Response(
-  JSON.stringify({ message: 'Data insert successful', insertId: result.inserId }), { status: 200, headers: { 'Content-Type' : 'application/json'}}
+  JSON.stringify({ message: 'Data insert successful', insertId: result.inserId }), 
+  { status: 200, headers: { 'Content-Type' : 'application/json'}}
 );
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We return a response body that converts it to a json string. <code>message</code> explains what happened. <code>insertId</code> is for when we add a new entry, the id automatically increments. <strong>NOTE: the id column is a primary key with auto_increment during the initialization and configuration of the table.</strong>
@@ -107,7 +110,76 @@ return new Response(
       <td><p>This mean its a server connection error. I'll put http responses table below</p></td>
     </tr>
   </tbody>
-</table>        
+</table>   
+
+#### For GET
+This is for read-only btw.
+
+So some of the code have been explained in the <code>POST</code> section, so just use that for reference.
+
+```javascript
+const query = "SELECT * FROM posts";
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So this is the query that we will send to the database. Selects everything from the table
+
+```javascript
+const [results] = await db.query(query)
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;practically same as the one from post but this time, we are not passing an array.
+
+The rest are still the same nonetheless.
+
+#### For DELETE
+Handles the delete to the database.
+```javascript
+const { searchParams } = new URL(req.url);
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this creates a URL object from the url of the request. in simple terms, link.
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>new URL(req.url)</code></td>
+      <td>parses the full request URL</td>
+    </tr>
+    <tr>
+      <td><code>{ searchParams }</code></td>
+      <td>extracts the searchParams from the URL to allow easy access to query parameters</td>
+    </tr>
+  </tbody>
+</table>
+
+```javascript
+const id = searchParams.get('id');
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retrieves the id from the query parameter
+
+```javascript
+const query = 'DELETE FROM posts WHERE id = ?';
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the query for talking to the database when deleting
+
+```javascript
+const [result] = await db.query(query, [id])
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;explanation is the same as the one from <code>POST()</code>
+
+```javascript
+if(result.affectedRows === 0) {
+  return Response...
+}
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the <code>.affectedRows</code> is the metadata that indicates how many rows were affected by the <code><strong>DELETE</strong></code> query.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;general code means that if the affected rows is 0, then no info comes along with that id.
+
+#### For PUT
+I'll just put a note here as its the same as the other methods. 
+
+<strong>NOTE:</strong>
+<ul>
+  <li>the fields (columns) along with their values must have the same name as they are in the query. Same casing same everything.</li>
+</ul>
 
 <hr>
 
