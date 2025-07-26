@@ -1,9 +1,9 @@
-<h1>PostSQL</h1>
+# PostSQL
 <p>This is a simple full stack website with a frontend and a backend. The backend being a local MySQL database.</p>
 
-<h2>Notes:</h2>
-<h3>The <code>.env</code> file</h3>
-<p>This is where you place your environment variables. Environment variables are where you usually keep your api keys or server credentials for safety. <strong>JUST REMEMBER TO ADD IT TO THE <code>.gitignore</code> file</strong> so you won't accidentally reveal your server/api credentials to your repository.</p>
+## Notes:
+### The <code>.env</code> file
+This is where you place your environment variables. Environment variables are where you usually keep your api keys or server credentials for safety. **JUST REMEMBER TO ADD IT TO THE <code>.gitignore</code> file** so you won't accidentally reveal your server/api credentials to your repository.
 
 <p>This is how the .env was utilized for this project (storing the credentials of my mysql db)</p>
 
