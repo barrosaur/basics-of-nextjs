@@ -31,7 +31,7 @@
 
 <hr>
 
-<h3><code>db.js</code></h3><br>
+## db.js
 <p>This is where we configure to connect to my mysql database.</p><br><br>
 ```javascript
   import mysql from 'mysql2/promise';
