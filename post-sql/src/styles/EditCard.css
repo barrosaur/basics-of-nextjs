@@ -1,0 +1,54 @@
+form {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-btn-container {
+  width: 100%;
+  display: flex;
+  margin: 20px 0 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn-container > button {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: var(--background);
+  background-color: var(--green);
+}
+
+.submit-btn-container > button:hover {
+  background-color: var(--green-hover);
+}
+
+.form-head {
+  padding: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.form-head > p{
+  flex: 1;
+}
+
+.form-head > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/public/x.svg');
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

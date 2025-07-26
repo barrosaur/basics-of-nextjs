@@ -104,6 +104,7 @@
       <td>
         <p>We return a response body that converts it to a json string. <code>message</code> explains what happened. <code>insertId</code> is for when we add a new entry, the id automatically increments. <strong>NOTE: the id column is a primary key with auto_increment during the initialization and configuration of the table.</strong></p><br>
         <p><code>status: 200</code> means OK</p>
+        <p><code>headers: {'Content-Type' : 'application/json'}</code>: <code>Content-Type</code> this is how the server tells the API that this data is a JSON file. The <code>application/json</code> makes sure that the format is in json in the headers</p>
       </td>
     </tr>
     <tr>

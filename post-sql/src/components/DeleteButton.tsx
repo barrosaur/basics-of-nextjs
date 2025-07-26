@@ -1,8 +1,14 @@
 import React from 'react'
 
-const DeleteButton = () => {
+interface DeleteProps {
+  onDelete: () => void;
+}
+
+const DeleteButton = ({ onDelete } : DeleteProps) => {
   return (
-    <button className='btn del'>Delete</button>
+    <button className='btn del' onClick={onDelete}>
+      Delete
+    </button>
   )
 }
 

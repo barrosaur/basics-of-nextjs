@@ -1,8 +1,14 @@
 import React from 'react'
 
-const EditButton = () => {
+interface EditProps {
+  onEdit: () => void;
+}
+
+const EditButton = ({ onEdit } : EditProps) => {
   return (
-    <button className='btn edit'>Edit</button>
+    <button className='btn edit' onClick={onEdit}>
+      Edit
+    </button>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactHTMLElement, useState } from 'react'
 import '@/styles/CreateNewPost.css'
 import Image from 'next/image';
 
@@ -37,7 +37,7 @@ const CreateNewPost = ({ onCancel } : Props) => {
     })
 
     const result = await response.json();
-    console.log(result)
+    alert(result.message);
 
     clearInput();
   }
