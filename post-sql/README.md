@@ -5,7 +5,7 @@
 ### The <code>.env</code> file
 This is where you place your environment variables. Environment variables are where you usually keep your api keys or server credentials for safety. **JUST REMEMBER TO ADD IT TO THE <code>.gitignore</code> file** so you won't accidentally reveal your server/api credentials to your repository.
 
-<p>This is how the .env was utilized for this project (storing the credentials of my mysql db)</p>
+This is how the .env was utilized for this project (storing the credentials of my mysql db)
 
 ```
 DB_HOST=your_host
