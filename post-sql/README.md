@@ -26,13 +26,11 @@
 <h3>The next.js structure for the api</h3><br>
 <p>It should be a child of the <code>/app</code> folder. And a child of that should be a <code>/handler</code> folder with a <code>route.js</code> file that handles api calls</p><br>
 
-<p>The <code>db.js</code> file should be a direct child of the <code>/handler</code> folder. This is where we will set up the connection to our database</p><br>
-<br>
-
-<hr>
+<p>The <code>db.js</code> file should be a direct child of the <code>/handler</code> folder. This is where we will set up the connection to our database</p>
 
 ## db.js
-<p>This is where we configure to connect to my mysql database.</p><br><br>
+<p>This is where we configure to connect to my mysql database.</p>
+
 ```
 import mysql from 'mysql2/promise';
 
@@ -44,9 +42,6 @@ export const db = mysql.createPool({
   port: process.env.DB_PORT, 
 })
 ```
-  some code
-```
-<br>
 
 <p>Use the import statement not the require one because it's what nextjs wants and we have to follow what it wants because we sucker.</p><br>
 
