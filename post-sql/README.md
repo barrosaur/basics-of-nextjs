@@ -15,10 +15,10 @@ DB_NAME=your_db_name
 DB_PORT=port_#_used
 ```
 
-<p>The <code>PORT</code>; I used this because my mysql server is hosted on localhost port 3306 (the default)</p>
+The <code>PORT</code>; I used this because my mysql server is hosted on localhost port 3306 (the default)
 
-<strong>To connect to your frontend:</strong>
-<p>Make sure that its in this format <code>process.env.{env_var}</code>. On the <code>{env_var}</code>, replace it with one of the appropriate environment variable.</p>
+#### To connect to your frontend:
+&nbsp;Make sure that its in this format <code>process.env.{env_var}</code>. On the <code>{env_var}</code>, replace it with one of the appropriate environment variable.
 
 <p><strong>NOTE:</strong> the <code>.env</code> file should be a sibling of the <code>src</code> folder and the other things in the nextjs configuration.</p>
 
