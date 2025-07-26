@@ -53,60 +53,53 @@ But basically that's the code. It's self-explanatory. Just take note that the po
 
 ### <code>route.js</code>
 This sets the routing of your api to connect to your frontend.
+
+```javascript
+export async function POST(req)
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creates an async function named POST that will run when your server recieves an HTTP POST request. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>POST</code> - create
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>req</code> contains the data that was sent by whoever called this API
+
+```javascript 
+const body = await req.json()
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reads incoming request body and turns it into JSON. <code>await</code> for duhh.
+
+```javascript    
+const { lastName, firstName, email } = body;
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this is destructuring. The body contains the <code>lastName</code>, <code>firstName</code>, <code>email</code>.
+
+```javascript    
+const query = 'INSERT INTO posts (last_name, first_name, email) VALUES (?, ?, ?)'
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;insert sql query. The command for doing database stuff. The question marks is to prevent sql injections.
+
+```javascript
+const [result] = await db.query(query, [lastName, firstName, email])
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the first one executes the query on the db. the second one, with the arrays, replaces the question marks in the query.
+      
+```javascript
+return new Response(
+  JSON.stringify({ message: 'Data insert successful', insertId: result.inserId }), { status: 200, headers: { 'Content-Type' : 'application/json'}}
+);
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We return a response body that converts it to a json string. <code>message</code> explains what happened. <code>insertId</code> is for when we add a new entry, the id automatically increments. <strong>NOTE: the id column is a primary key with auto_increment during the initialization and configuration of the table.</strong>
 <table>
   <tbody>
     <tr>
-      <td>
-        ```
-        export async function POST(req)
-        ```
-      </td>
-      <td>
-        <p>creates an async function named POST that will run when your server recieves an HTTP POST request. </p>
-        <p><code>POST</code> - create</p>
-        <p><code>req</code> contains the data that was sent by whoever called this API</p>
-      </td>
+      <td><code>status: 200</code></td>
+      <td><p>means OK</p></td>
     </tr>
     <tr>
+      <td><code>headers: {'Content-Type' : 'application/json'}</code></td>
       <td>
-        <code>const body = await req.json()</code>
-      </td>
-      <td>
-        <p>reads incoming request body and turns it into JSON. <code>await</code> for duhh.</p>
-      </td>
-    </tr>
-    <tr>
-      <td><code>const { lastName, firstName, email } = body;</code></td>
-      <td>
-        <p>this is destructuring. The body contains the <code>lastName</code>, <code>firstName</code>, <code>email</code>.</p>
-      </td>
-    </tr>
-    <tr>
-      <td><code>const query = 'INSERT INTO posts (last_name, first_name, email) VALUES (?, ?, ?)'</code></td>
-      <td>
-        <p>insert sql query. The command for doing database stuff. The question marks is to prevent sql injections.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>const [result] = await db.query(query, [lastName, firstName, email])</code>
-      </td>
-      <td>
-        <p>the first one executes the query on the db. the second one, with the arrays, replaces the question marks in the query.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>
-          return new Response(
-            JSON.stringify({ message: 'Data insert successful', insertId: result.inserId }), { status: 200, headers: { 'Content-Type' : 'application/json'}}
-          );
-        </code>
-      </td>
-      <td>
-        <p>We return a response body that converts it to a json string. <code>message</code> explains what happened. <code>insertId</code> is for when we add a new entry, the id automatically increments. <strong>NOTE: the id column is a primary key with auto_increment during the initialization and configuration of the table.</strong></p>
-        <p><code>status: 200</code> means OK</p>
-        <p><code>headers: {'Content-Type' : 'application/json'}</code>: <code>Content-Type</code> this is how the server tells the API that this data is a JSON file. The <code>application/json</code> makes sure that the format is in json in the headers</p>
+        <ul>
+          <li><code>Content-Type</code> this is how the server tells the API that this data is a JSON file</li>
+          <li><code>application/json</code> makes sure that the format is in json in the headers</li>
+        </ul>
       </td>
     </tr>
     <tr>
@@ -114,12 +107,12 @@ This sets the routing of your api to connect to your frontend.
       <td><p>This mean its a server connection error. I'll put http responses table below</p></td>
     </tr>
   </tbody>
-</table>
+</table>        
 
 <hr>
 
 ### MySQL db configuration
-<p>For this one do it in the mysql workbench. This is all the things i did:</p>
+For this one do it in the mysql workbench. This is all the things i did:
 <table>
   <tbody>
     <tr>
