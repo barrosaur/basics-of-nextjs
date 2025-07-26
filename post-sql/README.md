@@ -33,7 +33,7 @@
 
 <h3><code>db.js</code></h3><br>
 <p>This is where we configure to connect to my mysql database.</p><br><br>
-<code>
+```javascript
   import mysql from 'mysql2/promise';<br><br>
   export const db = mysql.createPool({<br>
     host: process.env.DB_HOST, <br>
@@ -42,7 +42,6 @@
     database: process.env.DB_NAME, <br>
     port: process.env.DB_PORT, <br>
   })<br>
-</code>
 <br>
 
 <p>Use the import statement not the require one because it's what nextjs wants and we have to follow what it wants because we sucker.</p><br>
