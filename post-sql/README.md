@@ -43,7 +43,9 @@ export const db = mysql.createPool({
   database: process.env.DB_NAME, 
   port: process.env.DB_PORT, 
 })
-
+```
+  some code
+```
 <br>
 
 <p>Use the import statement not the require one because it's what nextjs wants and we have to follow what it wants because we sucker.</p><br>
