@@ -44,6 +44,11 @@ const PostTable = () => {
       }
 
       setPosts(prevPosts => prevPosts.filter(post => post.id !== id));
+      /* 
+        EXPLANATION:
+        .filter() goes through each post in posts and returns a new array where post.id != id
+        because this updated array doesnt include the deleted one
+      */
 
       alert('Deleted!');
     } catch(err) {
@@ -56,6 +61,15 @@ const PostTable = () => {
     setPosts(prev => 
       prev.map(p => p.id === updatedPost.id ? updatedPost : p)
     );
+
+    /*
+      EXPLANATION:
+      .map() creates a new array by going through each post p in the old array
+
+      the ternary condition:
+        if the current post id matches updatedPost.id, replace that post with updatedtPost
+        else just keep the original
+    */
   }
 
   return (

@@ -40,6 +40,8 @@ const EditCard = ({ onCancel, post, onUpdate } : EditProps) => {
 
       alert('✅ Update successful!');
 
+      // for the destructuring part, ...post, this is to get the fields we
+      // want edited
       if(post) {
         onUpdate({
           ...post,
