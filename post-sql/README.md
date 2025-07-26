@@ -33,7 +33,7 @@
 
 ## db.js
 <p>This is where we configure to connect to my mysql database.</p><br><br>
-```javascript
+```
 import mysql from 'mysql2/promise';
 
 export const db = mysql.createPool({
