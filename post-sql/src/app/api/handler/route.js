@@ -78,9 +78,9 @@ export async function DELETE(req) {
 export async function PUT(req) {
   try {
     const body = await req.json();
-    const { id, firstName, lastName, email } = body;
+    const { id, first_name, last_name, email } = body;
 
-    if(!id || !firstName || !lastName || !email) {
+    if(!id || !first_name || !last_name || !email) {
       return new Response(
         JSON.stringify({ message: 'Missing required fields' }),
         {status: 400}
@@ -93,7 +93,7 @@ export async function PUT(req) {
       WHERE id = ?
     `;
 
-    const [result] = await db.query(query, [firstName, lastName, email, id]);
+    const [result] = await db.query(query, [first_name, last_name, email, id]);
 
     if(result.affectedRows === 0) {
       return new Response(

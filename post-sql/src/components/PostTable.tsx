@@ -15,7 +15,7 @@ export interface Post {
 const PostTable = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [editMode, setEditMode] = useState(false);
-  const [editPost, setEditPost] = useState<Post>();
+  const [editPost, setEditPost] = useState<Post>(); //handles all the post values
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -52,6 +52,12 @@ const PostTable = () => {
     }
   }
 
+  const updatePostInState = (updatedPost: Post) => {
+    setPosts(prev => 
+      prev.map(p => p.id === updatedPost.id ? updatedPost : p)
+    );
+  }
+
   return (
     <>
       <table>
@@ -75,7 +81,10 @@ const PostTable = () => {
                 <div className="btn-container">
                   <ReadButton />
                   <EditButton
-                    onEdit={() => setEditMode(!editMode)}
+                    onEdit={() => {
+                      setEditMode(!editMode);
+                      setEditPost(post); // updates the values in editCard
+                    }}
                   />
                   <DeleteButton 
                     onDelete={() => handleDelete(post.id)}
@@ -90,6 +99,7 @@ const PostTable = () => {
         <EditCard 
           onCancel={() => setEditMode(false)}
           post={editPost}
+          onUpdate={updatePostInState}
         />
       )}
     </>

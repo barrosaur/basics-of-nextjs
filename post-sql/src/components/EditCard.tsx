@@ -6,16 +6,56 @@ import { Post } from './PostTable'
 interface EditProps {
   onCancel: () => void;
   post?: Post; // the question mark is for optional
+  onUpdate: (updatedPost: Post) => void;
 }
 
-const EditCard = ({ onCancel, post } : EditProps) => {
+const EditCard = ({ onCancel, post, onUpdate } : EditProps) => {
   const imageSize = 24;
-  const [firstName, setFirstName] = useState(post?.first_name);
-  const [lastName, setLastName] = useState(post?.last_name);
-  const [email, setEmail] = useState(post?.email);
+  // the ?? '' makes it so that it will always be a string
+  // and not undefined
+  const [firstName, setFirstName] = useState(post?.first_name ?? '');
+  const [lastName, setLastName] = useState(post?.last_name ?? '');
+  const [email, setEmail] = useState(post?.email ?? '');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch('/api/handler', {
+        method: 'PUT',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({
+          id: post?.id,
+          first_name: firstName,
+          last_name: lastName,
+          email: email
+        }),
+      });
+
+      const data = await res.json();
+      if(!res.ok) {
+        alert(`Failed to update: ${data.message}`);
+        return;
+      }
+
+      alert('✅ Update successful!');
+
+      if(post) {
+        onUpdate({
+          ...post,
+          first_name: firstName,
+          last_name: lastName,
+          email: email
+        })
+      }
+    } catch(err) {
+      console.error('Error updating: ', err);
+      alert('Kay sala ni dev, sala ni dev, iyang dakong sala 🙏');
+    }
+  };
 
   return (
-    <form autoComplete='off' className="edit-container">
+    <form autoComplete='off' className="edit-container" onSubmit={handleSubmit}>
       <header className='form-head'>
         <p>Editing <span className="green">{post?.last_name}'s</span> information...</p>
         <button className="x-btn" onClick={onCancel}>
