@@ -18,13 +18,11 @@ DB_PORT=port_#_used
 The <code>PORT</code>; I used this because my mysql server is hosted on localhost port 3306 (the default)
 
 #### To connect to your frontend:
-&nbsp;&nbsp;&nbsp;&nbsp;Make sure that its in this format <code>process.env.{env_var}</code>. On the <code>{env_var}</code>, replace it with one of the appropriate environment variable.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make sure that its in this format <code>process.env.{env_var}</code>. On the <code>{env_var}</code>, replace it with one of the appropriate environment variable.
 
-<p><strong>NOTE:</strong> the <code>.env</code> file should be a sibling of the <code>src</code> folder and the other things in the nextjs configuration.</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NOTE:</strong> the <code>.env</code> file should be a sibling of the <code>src</code> folder and the other things in the nextjs configuration.
 
-<hr>
-
-<h3>The next.js structure for the api</h3>
+### The next.js structure for the api
 <p>It should be a child of the <code>/app</code> folder. And a child of that should be a <code>/handler</code> folder with a <code>route.js</code> file that handles api calls</p>
 
 <p>The <code>db.js</code> file should be a direct child of the <code>/handler</code> folder. This is where we will set up the connection to our database</p>
@@ -50,7 +48,7 @@ export const db = mysql.createPool({
 
 <hr>
 
-<h3><code>route.js</code></h3>
+### <code>route.js</code>
 <p>This sets the routing of your api to connect to your frontend.</p>
 <table>
   <tbody>
@@ -115,7 +113,7 @@ export const db = mysql.createPool({
 
 <hr>
 
-<h3>MySQL db configuration</h3>
+### MySQL db configuration
 <p>For this one do it in the mysql workbench. This is all the things i did:</p>
 <table>
   <tbody>
