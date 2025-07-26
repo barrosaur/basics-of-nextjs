@@ -3,7 +3,9 @@ import '@/styles/PostTable.css'
 import { ReadButton, EditButton, DeleteButton } from './buttonComponent'
 import EditCard from './EditCard'
 
-interface Post {
+// key must be in the same format as the one in the query for this one
+// since we are looking for specific ids and their columns
+export interface Post {
   id: number;
   last_name: string;
   first_name: string;
@@ -13,6 +15,7 @@ interface Post {
 const PostTable = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [editMode, setEditMode] = useState(false);
+  const [editPost, setEditPost] = useState<Post>();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -86,6 +89,7 @@ const PostTable = () => {
       {editMode && (
         <EditCard 
           onCancel={() => setEditMode(false)}
+          post={editPost}
         />
       )}
     </>
