@@ -52,12 +52,14 @@ But basically that's the code. It's self-explanatory. Just take note that the po
 <hr>
 
 ### <code>route.js</code>
-<p>This sets the routing of your api to connect to your frontend.</p>
+This sets the routing of your api to connect to your frontend.
 <table>
   <tbody>
     <tr>
       <td>
-        <code>export async function POST(req)</code>
+        ```
+        export async function POST(req)
+        ```
       </td>
       <td>
         <p>creates an async function named POST that will run when your server recieves an HTTP POST request. </p>
@@ -159,7 +161,7 @@ But basically that's the code. It's self-explanatory. Just take note that the po
 
 <hr>
 
-<h1>HTTP Status Codes (the general)</h1>
+# HTTP Status Codes (the general)
 <table>
   <thead>
     <tr>
@@ -185,4 +187,4 @@ But basically that's the code. It's self-explanatory. Just take note that the po
 
 
 
-<p>For specifics, look online but i highly recommend <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status" target='_blank'>this one</a></p>
+For specifics, look online but i highly recommend <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status" target='_blank'>this one</a>
