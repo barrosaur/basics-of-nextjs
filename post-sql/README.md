@@ -22,13 +22,17 @@ The <code>PORT</code>; I used this because my mysql server is hosted on localhos
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NOTE:</strong> the <code>.env</code> file should be a sibling of the <code>src</code> folder and the other things in the nextjs configuration.
 
+<hr>
+
 ### The next.js structure for the api
-<p>It should be a child of the <code>/app</code> folder. And a child of that should be a <code>/handler</code> folder with a <code>route.js</code> file that handles api calls</p>
+It should be a child of the <code>/app</code> folder. And a child of that should be a <code>/handler</code> folder with a <code>route.js</code> file that handles api calls
 
-<p>The <code>db.js</code> file should be a direct child of the <code>/handler</code> folder. This is where we will set up the connection to our database</p>
+The <code>db.js</code> file should be a direct child of the <code>/handler</code> folder. This is where we will set up the connection to our database
 
-## db.js
-<p>This is where we configure to connect to my mysql database.</p>
+<hr>
+
+### db.js
+This is where we configure to connect to my mysql database.
 
 ```javascript
 import mysql from 'mysql2/promise';
@@ -42,10 +46,9 @@ export const db = mysql.createPool({
 })
 ```
 
-<p>Use the import statement not the require one because it's what nextjs wants and we have to follow what it wants because we sucker.</p>
+Use the import statement not the require one because it's what nextjs wants and we have to follow what it wants because we sucker.
 
-<p>But basically that's the code. It's self-explanatory. Just take note that the port is only there if you usin' localhost.</p>
-
+But basically that's the code. It's self-explanatory. Just take note that the port is only there if you usin' localhost.
 <hr>
 
 ### <code>route.js</code>
