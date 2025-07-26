@@ -6,12 +6,13 @@
 <p>This is where you place your environment variables. Environment variables are where you usually keep your api keys or server credentials for safety. <strong>JUST REMEMBER TO ADD IT TO THE <code>.gitignore</code> file</strong> so you won't accidentally reveal your server/api credentials to your repository.</p>
 
 <p>This is how the .env was utilized for this project (storing the credentials of my mysql db)</p>
+
 ```
-  DB_HOST=your_host
-  DB_USER=your_username
-  DB_PASSWORD=your_password
-  DB_NAME=your_db_name
-  DB_PORT=port_#_used
+DB_HOST=your_host
+DB_USER=your_username
+DB_PASSWORD=your_password
+DB_NAME=your_db_name
+DB_PORT=port_#_used
 ```
 
 <p>The <code>PORT</code>; I used this because my mysql server is hosted on localhost port 3306 (the default)</p>
