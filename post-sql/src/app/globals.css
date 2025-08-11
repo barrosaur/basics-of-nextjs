@@ -1,7 +1,7 @@
 :root {
   --background: #eeeeee;
   --foreground-1: #1c1c1c;
-  --green: #2b9d14;
+  --green: rgba(43, 157, 20, 1);
   --green-hover: #248810;
   --table-bg: #dedede;
   --table-border: #e7e7e7;
