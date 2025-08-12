@@ -27,7 +27,7 @@ The <code>PORT</code>; I used this because my mysql server is hosted on localhos
 ### The next.js structure for the api
 It should be a child of the <code>/app</code> folder. And a child of that should be a <code>/handler</code> folder with a <code>route.js</code> file that handles api calls
 
-The <code>db.js</code> file should be a direct child of the <code>/handler</code> folder. This is where we will set up the connection to our database
+The <code>db.js</code> file should be a sibling of the <code>/handler</code> folder. This is where we will set up the connection to our database
 
 <hr>
 
